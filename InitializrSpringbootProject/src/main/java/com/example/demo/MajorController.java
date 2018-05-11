@@ -5,7 +5,9 @@
  */
 package com.example.demo;
 
+import com.example.demo.domain.Course;
 import com.example.demo.domain.Major;
+import com.example.demo.domain.Student;
 import com.example.demo.repository.CourseRepository;
 import com.example.demo.repository.MajorRepository;
 import com.example.demo.repository.StudentRepository;
@@ -34,5 +36,20 @@ public class MajorController {
         return "success";
     }
     
+    @RequestMapping("/findmajorname")
+    public Major findmajorname(String mname) {
+        return mr.findByName(mname);
+    }
     
+    @RequestMapping("/findmajorcourse")
+    public Major findmajorcourse(String cname) {
+        Course c = cr.findByName(cname);
+        return mr.findByCourse(c);
+    }
+    
+    @RequestMapping("/findmajorstudent")
+    public Major findmajorstudent(String sname) {
+        Student s = sr.findByName(sname);
+        return mr.findByStudent(s);
+    }
 }

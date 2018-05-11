@@ -25,12 +25,12 @@ public class Grade {
     
     private String g;
     
-    @JsonIgnore
+    
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="student")
     private Student student;
     
-    @JsonIgnore
+    
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="course")
     private Course course;

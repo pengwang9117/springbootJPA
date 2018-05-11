@@ -6,11 +6,14 @@
 package com.example.demo;
 
 import com.example.demo.domain.Course;
+import com.example.demo.domain.Grade;
 import com.example.demo.domain.Major;
+import com.example.demo.domain.Student;
 import com.example.demo.repository.CourseRepository;
 import com.example.demo.repository.GradeRepository;
 import com.example.demo.repository.MajorRepository;
 import com.example.demo.repository.StudentRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,4 +55,23 @@ public class CourseController {
     public Course findcoursename(String cname) {
         return cr.findByName(cname);
     }
+    
+    @RequestMapping("/findcoursemajor")
+    public List<Course> findcoursemajor(String mname) {
+        Major m = mr.findByName(mname);
+        return cr.findByMajor(m);
+    }
+    
+    @RequestMapping("/findcoursestudent")
+    public List<Course> findcoursestudent(String sname) {
+        Student s = sr.findByName(sname);
+        return cr.findByStudent(s);
+    }
+    
+    @RequestMapping("/findgradecourse")
+    public List<Grade> findgradecourse(String cname) {
+        Course c = cr.findByName(cname);
+        return gr.findByCourse(c);
+    }
+    
 }

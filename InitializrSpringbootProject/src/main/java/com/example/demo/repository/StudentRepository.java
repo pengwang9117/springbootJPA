@@ -22,5 +22,5 @@ public interface StudentRepository extends JpaRepository<Student, Integer>{
     List<Student> findByMajor(Major major);
     List<Student> findByCourse(Course course);
     
-    Student findByGrade(Grade grade);
+    
 }

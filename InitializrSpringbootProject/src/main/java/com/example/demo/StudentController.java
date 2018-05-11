@@ -96,4 +96,10 @@ public class StudentController {
         Student s = sr.findByName(sname);
         return gr.findByStudent(s);
     }
+    
+    @RequestMapping("/pullstudentcourse")
+    public List<Course> pullstudentcourse(String sname){
+        Student s = sr.findByName(sname);
+        return s.getCourse();
+    }
 }

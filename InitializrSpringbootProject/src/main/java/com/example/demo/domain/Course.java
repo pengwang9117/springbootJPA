@@ -30,7 +30,7 @@ public class Course {
     
     private String name;
     
-    @JsonIgnore
+    
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="major")
     private Major major;
